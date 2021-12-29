@@ -5,6 +5,8 @@ function animate(){
     frogger.draw();
     // call update method
     frogger.update();
+    // call handleObstacles
+    handleObstacles();
     // callback function sets the animation loop with recursion
     requestAnimationFrame(animate);
 }
