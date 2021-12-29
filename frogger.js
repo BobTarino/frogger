@@ -18,13 +18,32 @@ class Frogger {
         this.frameY = 0;
     }
     update() {
-       console.log('update');
+    //    console.log('update');
        if (keys[38]){ // up
             if (this.moving === false) {
-                this.y -= grid; // frog willjump 80 pixels up
+                this.y -= grid; // frog will jump 80 pixels up
                 this.moving = true; // statement is only enetered when movement is false
             }
         }
+        if (keys[40]){ // down
+            if (this.moving === false && this.y < canvas.height - this.height * 2){ // prevents frog from leaving screen
+                this.y += grid; // frog will jump 80 pixels down
+                this.moving = true;  // statement is only enetered when movement is false
+            } 
+        }
+        if (keys[37]){ // left
+            if (this.moving === false && this.x > this.width){
+                this.y -= grid; 
+                this.moving = true;  
+            } 
+        }
+        if (keys[39]){ // right
+            if (this.moving === false && this.x < canvas.width - this.width * 2){
+                this.y -= grid; 
+                this.moving = true;  
+            } 
+        }
+
     }
     // frog will be on canvas 3 
     draw(){
