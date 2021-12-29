@@ -19,3 +19,8 @@ window.addEventListener('keydown', function(e){
         frogger.jump()
     }
 });
+
+window.addEventListener('keyup', function(e){
+    delete keys[e.keyCode]; // delete keys from keys array
+    frogger.moving = false; // initially movement is false // will reset when key is released
+})

@@ -19,11 +19,20 @@ class Frogger {
     }
     update() {
        console.log('update');
+       if (keys[38]){ // up
+            if (this.moving === false) {
+                this.y -= grid; // frog willjump 80 pixels up
+                this.moving = true; // statement is only enetered when movement is false
+            }
+        }
     }
     // frog will be on canvas 3 
     draw(){
         ctx3.fillStyle = 'green';
         ctx3.fillRect(this.x, this.y, this.width, this.height);
+    }
+    jump() {
+        // console.log('jump');
     }
 }
 
