@@ -9,8 +9,8 @@ class Frogger {
         this.width = this.spriteWidth/5;
         this.height = this.spriteHeight/5;
         // x and y coordiantes where frog first appears (centered and at bottom)
-        this.x = canvas.width/2 -this.width/2;
-        this.y = canvas.height -this.height - 40;
+        this.x = canvas.width/2 - this.width/2;
+        this.y = canvas.height - this.height - 40;
         // prevent frog from moving across screen too fast
         this.moving = false;
         // holds coordinates for current frame within sprite sheet // will dynamically change to move frog
@@ -18,7 +18,6 @@ class Frogger {
         this.frameY = 0;
     }
     update() {
-    //    console.log('update');
        if (keys[38]){ // up
             if (this.moving === false) {
                 this.y -= grid; // frog will jump 80 pixels up
@@ -43,6 +42,7 @@ class Frogger {
                 this.moving = true;  
             } 
         }
+        if (this.y < 0) scored(); // if player moves past top edge of game area
 
     }
     // frog will be on canvas 3 
@@ -51,7 +51,7 @@ class Frogger {
         ctx3.fillRect(this.x, this.y, this.width, this.height);
     }
     jump() {
-        // console.log('jump');
+        
     }
 }
 

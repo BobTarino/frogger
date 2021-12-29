@@ -23,4 +23,12 @@ window.addEventListener('keydown', function(e){
 window.addEventListener('keyup', function(e){
     delete keys[e.keyCode]; // delete keys from keys array
     frogger.moving = false; // initially movement is false // will reset when key is released
-})
+});
+
+// score point! // when player moves past top edge of game area
+function scored(){
+    score++; // when score function runs variable will increase by one
+    gameSpeed += 0.05; // game speed increases by 0.05
+    frogger.x = canvas.width/2 - frogger.width/2; // resets frog position x coordinate  
+    frogger.y = canvas.height - frogger.height - 40; // resets frog position y coordinate 
+}

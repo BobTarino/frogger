@@ -1,3 +1,4 @@
+/*  sets boundaries for game area */
 .wrapper {
     /* order with absolute position centering */
     border: 5px solid black;
