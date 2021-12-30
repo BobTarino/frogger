@@ -28,7 +28,7 @@ class Obstacle {
     }
 }
 
-// initial obstacles lane by lane 
+// initial car obstacles lane by lane 
 function initObstacles(){
     // lane 1 for loop runs twice
     for (let i = 0; i < 2; i++){
@@ -41,7 +41,11 @@ function initObstacles(){
         carsArray.push(new Obstacle(x, canvas.height - grid * 3 - 20, grid * 2, grid, -2, 'car' ))// pushes new car object to array
     }
     // lane 3
-    
+    for (let i = 0; i < 2; i++){
+        let x = i * 400; 
+        carsArray.push(new Obstacle(x, canvas.height - grid * 4 - 20, grid * 2, grid, -2, 'car' ))
+    }
+
 
 
 
