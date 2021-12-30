@@ -49,3 +49,7 @@ const ripplesArray =  [];
 const carsArray = [];
 // logs array holds log and turtle objects 
 const logsArray = [];
+
+//images
+const background_lvl2 = new Image();
+background_lvl2.src = 'src/assets/images/background_lvl2.png';

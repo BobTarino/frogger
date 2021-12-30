@@ -5,6 +5,7 @@ function animate(){
     frogger.draw();
     // call update method
     frogger.update();
+    ctx2.drawImage(background_lvl2, 0, 0, canvas.width, canvas.height);
     // call handleObstacles
     handleObstacles();
     // callback function sets the animation loop with recursion
