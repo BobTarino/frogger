@@ -33,23 +33,28 @@ function initObstacles(){
     // lane 1 for loop runs twice
     for (let i = 0; i < 2; i++){
         let x = i * 350; // space between cars
-        carsArray.push(new Obstacle(x, canvas.height - grid * 2 - 20, grid * 2, grid, 1, 'car' )); // pushes new car object to array
+        carsArray.push(new Obstacle(x, canvas.height - grid * 2 - 20, grid * 2, grid, 1, 'car' )); // pushes two car objects to array
     }
     // lane 2 
     for (let i = 0; i < 2; i++){
         let x = i * 300; // space between cars
-        carsArray.push(new Obstacle(x, canvas.height - grid * 3 - 20, grid * 2, grid, -2, 'car' ))// pushes new car object to array
+        carsArray.push(new Obstacle(x, canvas.height - grid * 3 - 20, grid * 2, grid, -2, 'car' )); // pushes two car objects to array
     }
     // lane 3
     for (let i = 0; i < 2; i++){
         let x = i * 400; 
-        carsArray.push(new Obstacle(x, canvas.height - grid * 4 - 20, grid * 2, grid, -2, 'car' ))
+        carsArray.push(new Obstacle(x, canvas.height - grid * 4 - 20, grid * 3, grid, 2, 'car' )); // pushes two truck object to array
     }
-
-
-
-
-
+    // lane 4 
+    for (let i = 0; i < 2; i++){
+        let x = i * 400; 
+        logsArray.push(new Obstacle(x, canvas.height - grid * 5 - 20, grid * 2, grid, -2, 'log')); // pushes two log objects to array
+    }
+    // lane 5 
+    for (let i = 0; i < 3; i++){
+        let x = i * 200; 
+        logsArray.push(new Obstacle(x, canvas.height - grid * 6 - 20, grid, grid, 1, 'turtle')); // pushes three turtles to object to array
+    }
 }
 
 
@@ -61,5 +66,9 @@ function handleObstacles(){
     for (let i = 0; i < carsArray.length; i++){
         carsArray[i].update();
         carsArray[i].draw();
+    }
+    for (let i = 0; i < logsArray.length; i++){
+        logsArray[i].update();
+        logsArray[i].draw();
     }
 }
