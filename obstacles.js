@@ -11,11 +11,20 @@ class Obstacle {
     draw(){
         
        // obstacles drawn on canvas 1 
-       ctx1.fillStyle = 'blue';
+       ctx1.fillStyle = 'black';
        ctx1.fillRect(this.x, this.y, this.width, this.height); 
     }
     update(){
         this.x += this.speed * gameSpeed; // have to multiply game speed to keep same plus/minus value and direction
+        if (this.speed > 0){
+            if (this.x > canvas.width + this.width){
+                this.x = 0 - this.width;
+            } // resets car at left edge of canvas if car drives past right edge
+        } else { 
+            if (this.x < 0 - this.width ){ 
+                this.x = canvas.width + this.width; // resets car at right of canvas if car drives past left edge
+            }
+        }
     }
 }
 
@@ -23,10 +32,23 @@ class Obstacle {
 function initObstacles(){
     // lane 1 for loop runs twice
     for (let i = 0; i < 2; i++){
-        let x = i * 350;
-        carsArray.push(new Obstacle(x, canvas.height - grid * 2 -20, grid * 2, grid, 1, 'car' )); // pushes new car object to array
+        let x = i * 350; // space between cars
+        carsArray.push(new Obstacle(x, canvas.height - grid * 2 - 20, grid * 2, grid, 1, 'car' )); // pushes new car object to array
     }
+    // lane 2 
+    for (let i = 0; i < 2; i++){
+        let x = i * 300; // space between cars
+        carsArray.push(new Obstacle(x, canvas.height - grid * 3 - 20, grid * 2, grid, -2, 'car' ))// pushes new car object to array
+    }
+    // lane 3
+    
+
+
+
+
 }
+
+
 initObstacles();
 
 // function to cycle through cars array
