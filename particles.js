@@ -19,7 +19,16 @@ class Particle{ // holds blueprint for patricle
     }
     // runs every frame to move particles along x and y axis based on values in direction variables 
     update(){
-
+        this.x += this.directionX;
+        this.y += this.directionY;
     }
+}
 
+// custom function to handle particles 
+function handleParticles(){
+    for (let i = 0; i < particlesArray.length; i++){ // for loop will iterate through particles array 
+        particlesArray[i].update(); // calculate current position for each frame of animation
+        particlesArray[i].draw(); // draw circle at position
+    }
+    
 }
