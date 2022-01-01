@@ -53,3 +53,6 @@ const logsArray = [];
 //images
 const background_lvl2 = new Image();
 background_lvl2.src = 'src/assets/images/background_lvl2.png';
+
+const grass = new Image();
+grass.src = 'src/assets/images/grass.png'; 

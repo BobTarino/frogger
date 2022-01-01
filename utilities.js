@@ -1,13 +1,16 @@
 function animate(){
     // clear canvas
     ctx3.clearRect(0, 0, canvas.width, canvas.height);
+    // draws background image 
+    ctx2.drawImage(background_lvl2, 0, 0, canvas.width, canvas.height);
     // call draw method
     frogger.draw();
     // call update method
     frogger.update();
-    ctx2.drawImage(background_lvl2, 0, 0, canvas.width, canvas.height);
     // call handleObstacles
-    handleObstacles();
+    // handleObstacles();
+    // draws grass
+    ctx4.drawImage(grass, 0, 0, canvas.width, canvas.height);
     // callback function sets the animation loop with recursion
     requestAnimationFrame(animate);
 }

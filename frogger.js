@@ -32,13 +32,13 @@ class Frogger {
         }
         if (keys[37]){ // left
             if (this.moving === false && this.x > this.width){
-                this.y -= grid; 
+                this.x -= grid; 
                 this.moving = true;  
             } 
         }
         if (keys[39]){ // right
             if (this.moving === false && this.x < canvas.width - this.width * 2){
-                this.y -= grid; 
+                this.x += grid; 
                 this.moving = true;  
             } 
         }
@@ -51,7 +51,7 @@ class Frogger {
         ctx3.fillRect(this.x, this.y, this.width, this.height);
     }
     jump() {
-        
+        // console.log('jump');
     }
 }
 
