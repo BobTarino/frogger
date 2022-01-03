@@ -3,6 +3,8 @@ function animate(){
     ctx3.clearRect(0, 0, canvas.width, canvas.height);
     // draws background image 
     ctx2.drawImage(background_lvl2, 0, 0, canvas.width, canvas.height);
+    // particles appear below frog on ground
+    handleParticles();
     // call draw method
     frogger.draw();
     // call update method

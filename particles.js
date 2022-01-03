@@ -13,7 +13,7 @@ class Particle{ // holds blueprint for patricle
         // drawn on canvas 3 
         ctx3.fillStyle = 'rgba(150,150,150,1)'; // rgb color declaration for alpha opacity
         ctx3.beginPath(); // begin drawing circle
-        ctx3.arc(this.x, this.y, this.radius, 0, Math.PI * 2) // draws circular path based on angles we pass as arguments 
+        ctx3.arc(this.x, this.y, this.radius, 0, Math.PI * 2); // draws circular path based on angles we pass as arguments 
         ctx3.fill(); // fill path w/ color 
         ctx3.closePath(); // closes circular path
     }
@@ -30,5 +30,11 @@ function handleParticles(){
         particlesArray[i].update(); // calculate current position for each frame of animation
         particlesArray[i].draw(); // draw circle at position
     }
-    
+    if (((keys[37] || keys[38] || keys[39] || keys [40])) && frogger.y > 100 && particlesArray.length < 200){ // if frog is moving when keys are pressed && frogger is on road && and no more than 200 particles in array for performance reasons
+        // overwrites original array with specified data
+        for (let i = 0; i < 10; i++){
+            particlesArray.unshift(new Particle(frogger.x, frogger.y)) //es6 class example
+        }
+    }
+
 }
