@@ -28,21 +28,28 @@ class Particle{ // holds blueprint for patricle
             this.radius -= 0.14; // reduce radius by 0.14 for every frame // make sure radius doesn't go negative or else error
         }
     }
+    drawRipple(){
+        // drawn on canvas 1 
+        ctx1.strokeStyle = 'rgba(255,255,255,' + this.opacity + ')'; // rgb color declaration for opacity // opacity is now dynamic with concat
+        ctx1.beginPath(); // begin drawing circle
+        ctx1.arc(this.x, this.y, this.radius, 0, Math.PI * 2); // draws circular path based on angles we pass as arguments 
+        ctx1.stroke(); // stroke path w/ color 
+        ctx1.closePath(); // closes circular path
+    }
     ripple(){ // start small and grow until reach certain size
         if (this.radius < 50){
-            this.radius += 0.5; // circle will grow 
-            this.x -= 0.1;  // grow from center left
-            this.y -= 0.1; // grow from center up
+            this.radius += 0.7; // circle will grow 
+            this.x -= 0.03;  // grow from center left
+            this.y -= 0.03; // grow from center up
         }
         if (this.opacity > 0){
-            this.opacity -= 0.005; // decrease opacity by small amount so ripples slowly disappears 
+            this.opacity -= 0.02; // decrease opacity by small amount so ripples slowly disappears 
         }
     }
 }
 
-// custom function to handle particles 
+// custom function to handle dust particles 
 function handleParticles(){
-    // dust
     for (let i = 0; i < particlesArray.length; i++){ // for loop will iterate through particles array 
         particlesArray[i].update(); // calculate current position for each frame of animation
         particlesArray[i].draw(); // draw circle at position
@@ -58,17 +65,20 @@ function handleParticles(){
             particlesArray.unshift(new Particle(frogger.x, frogger.y)) //es6 class example
         }
     }
+}
+// custom function to ripples
+function handleRipples(){
     // water ripples
     for (let i = 0; i < ripplesArray.length; i++){ // for loop will iterate through particles array 
         ripplesArray[i].ripple(); // calculate current position for each frame of animation
-        ripplesArray[i].draw(); // draw circle at position
+        ripplesArray[i].drawRipple(); // draw circle at position
     }
     if (ripplesArray.length > 20){
-        for (let i = 0; i < 30; i++){
+        for (let i = 0; i < 5; i++){
         ripplesArray.pop(); // if we have more than 20 ripples, remove 20 old ripples with pop method
         }
     }
-    if (((keys[37] || keys[38] || keys[39] || keys [40])) && frogger.y < 250){
+    if (((keys[37] || keys[38] || keys[39] || keys [40])) && frogger.y < 250 && frogger.y > 100){
         for (let i = 0; i < 20; i++){
             ripplesArray.unshift(new Particle(frogger.x, frogger.y));
         }
