@@ -5,6 +5,8 @@ function animate(){
     ctx3.clearRect(0, 0, canvas.width, canvas.height);
     ctx4.clearRect(0, 0, canvas.width, canvas.height);
     ctx5.clearRect(0, 0, canvas.width, canvas.height);
+    // ripples appear when frog over water
+    handleRipples();
     // draws background image 
     ctx2.drawImage(background_lvl2, 0, 0, canvas.width, canvas.height);
     // call draw method
@@ -14,7 +16,7 @@ function animate(){
     // particles appear below frog on ground
     handleParticles();
     // call handleObstacles
-    // handleObstacles();
+    handleObstacles();
     // draws grass
     ctx4.drawImage(grass, 0, 0, canvas.width, canvas.height);
     // callback function sets the animation loop with recursion
