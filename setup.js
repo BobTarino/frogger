@@ -38,6 +38,7 @@ let collisionsCount = 0;
 let frame = 0;
 // game speed will increase slightly when point is scored
 let gameSpeed = 1;
+let safe = false; // frog will only be safe if lands on log or turtle
 
 // particles array will hold all particle objects for dust fx
 const particlesArray = [];

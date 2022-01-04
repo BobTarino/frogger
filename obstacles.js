@@ -101,6 +101,25 @@ function handleObstacles(){
             resetGame();
         }
     }
+    // collision w/ logs and turtles
+    if (frogger.y < 250 && frogger.y > 100) { 
+        safe = false;
+        // frog can hop onto floating objects
+        for(let i = 0; i < logsArray.length; i++){ // iterates through logs array which contains logs and turtles
+            if (collision(frogger, logsArray[i])){
+                frogger.x += logsArray[i].speed; // speed of frog and object match
+                safe = true;
+            }
+        }
+        // game resets if frog sinks
+        if (!safe){
+            for (let i = 0; i < 30; i++){
+                ripplesArray.unshift(new Particle(frogger.x, frogger.y));
+            } 
+            resetGame();
+        }
+
+    }
 
 
 
