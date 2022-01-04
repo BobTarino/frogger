@@ -7,14 +7,18 @@ class Obstacle {
         this.height = height;
         this.speed = speed;
         this.type = type;
+        this.frameX = 0; // x coordinate for cropped out frame 
+        this.frameY = 0; // y coordinate for cropped out frame 
     }
     draw(){
        if (this.type === 'turtle'){
-           ctx1.drawImage(turtle, )
+           ctx1.fillRect(this.x, this.y, this.width, this.height); // see if hitbox area matches image to make sure if we jump on turtle we dont fall
+            // one frame from spread sheet is 70x70 pix
+           ctx1.drawImage(turtle, this.frameX * 70, this.frameY * 70, 70, 70, this.x, this.y, this.width, this.height); // attributes: image, four attributes for area to crop out of spritesheet, four other attributes for where you want to draw image 
        }
        // obstacles drawn on canvas 3
-       ctx3.fillStyle = 'black';
-       ctx3.fillRect(this.x, this.y, this.width, this.height); 
+    //    ctx3.fillStyle = 'black';
+    //    ctx3.fillRect(this.x, this.y, this.width, this.height); 
     }
     // direct relationship bewteen gameSpeed and movement speed of obstacles
     update(){
