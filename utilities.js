@@ -71,3 +71,12 @@ function collision(first, second){
                 first.y > second.y + second.height || // cannot collide
                 first.y + first.height < second.y); // cannot collide
 }
+ 
+// when frog gets hit by car or sinks in water
+function resetGame(){
+    frogger.x = canvas.width/2 - frogger.width/2; // resets frog position x coordinate  
+    frogger.y = canvas.height - frogger.height - 40; // resets frog position y coordinate 
+    score = 0;
+    collisionsCount++;
+    gameSpeed = 1;
+}
