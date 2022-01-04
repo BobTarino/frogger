@@ -9,11 +9,11 @@ class Obstacle {
         this.type = type;
     }
     draw(){
-        
-       // obstacles drawn on canvas 1 
-       ctx1.fillStyle = 'black';
-       ctx1.fillRect(this.x, this.y, this.width, this.height); 
+       // obstacles drawn on canvas 3
+       ctx3.fillStyle = 'black';
+       ctx3.fillRect(this.x, this.y, this.width, this.height); 
     }
+    // direct relationship bewteen gameSpeed and movement speed of obstacles
     update(){
         this.x += this.speed * gameSpeed; // have to multiply game speed to keep same plus/minus value and direction
         if (this.speed > 0){
@@ -71,4 +71,11 @@ function handleObstacles(){
         logsArray[i].update();
         logsArray[i].draw();
     }
+    // collision with car
+
+
+
 }
+
+
+
