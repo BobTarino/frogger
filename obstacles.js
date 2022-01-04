@@ -10,6 +10,7 @@ class Obstacle {
         this.frameX = 0; // x coordinate for cropped out frame 
         this.frameY = 0; // y coordinate for cropped out frame 
         this.randomise = Math.floor(Math.random() * 30 + 30); // desynchronize turtles with random number between 30 and 60 (without decimal points)
+        this.carType = (Math.floor(Math.random() * numberOfCars));   // pick random car from spritesheet
     }
     draw(){
        if (this.type === 'turtle'){
@@ -20,21 +21,31 @@ class Obstacle {
             // ctx1.fillRect(this.x, this.y, this.width, this.height); // see if hitbox area matches image to make sure if we jump on turtle we dont fall
             // one frame from spread sheet is 70x70 pix
            ctx1.drawImage(turtle, this.frameX * 70, this.frameY * 70, 70, 70, this.x, this.y, this.width, this.height); // attributes: image, four attributes for area to crop out of spritesheet, four other attributes for where you want to draw image 
+       } else if (this.type === 'log'){
+           ctx1.drawImage(log, this.x, this.y, this.width, this.height);  
+       } else {
+           ctx2.fillRect(this.x, this.y, this.width, this.height); // check collision area
+           ctx2.drawImage(car, this.frameX * this.width, this.carType * this.height, grid * 2, grid, this.x, this.y, this.width, this.height); // copies out random cars
        }
        // obstacles drawn on canvas 3
     //    ctx3.fillStyle = 'black';
     //    ctx3.fillRect(this.x, this.y, this.width, this.height); 
     }
+
+
     // direct relationship bewteen gameSpeed and movement speed of obstacles
     update(){
         this.x += this.speed * gameSpeed; // have to multiply game speed to keep same plus/minus value and direction
         if (this.speed > 0){
             if (this.x > canvas.width + this.width){
-                this.x = 0 - this.width;
-            } // resets car at left edge of canvas if car drives past right edge
+                this.x = 0 - this.width; // resets car at left edge of canvas if car drives past right edge
+                this.carType = (Math.floor(Math.random() * numberOfCars)); // randomises car
+            } 
         } else { 
+            this.frameX = 1;
             if (this.x < 0 - this.width ){ 
                 this.x = canvas.width + this.width; // resets car at right of canvas if car drives past left edge
+                this.carType = (Math.floor(Math.random() * numberOfCars)); // randomises car
             }
         }
     }

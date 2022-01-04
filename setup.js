@@ -67,5 +67,5 @@ const log = new Image();
 log.src = 'src/assets/images/log.png';
 
 const car = new Image();
-car.src = 'src/assets/images/car.png';
-let numberOfCars = 30; // equal to number of rows in spreadsheet
+car.src = 'src/assets/images/cars.png';
+let numberOfCars = 3; // equal to number of rows in spreadsheet
