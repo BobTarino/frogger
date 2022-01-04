@@ -1,3 +1,4 @@
+// animation loop
 function animate(){
     // clear canvas
     ctx1.clearRect(0, 0, canvas.width, canvas.height);
@@ -21,6 +22,8 @@ function animate(){
     handleScoreBoard();
     // draws grass
     ctx4.drawImage(grass, 0, 0);
+    // increase frame variable by 1 everytime loop runs
+    frame++;
     // callback function sets the animation loop with recursion
     requestAnimationFrame(animate);
 }

@@ -9,10 +9,15 @@ class Obstacle {
         this.type = type;
         this.frameX = 0; // x coordinate for cropped out frame 
         this.frameY = 0; // y coordinate for cropped out frame 
+        this.randomise = Math.floor(Math.random() * 30 + 30); // desynchronize turtles with random number between 30 and 60 (without decimal points)
     }
     draw(){
        if (this.type === 'turtle'){
-           ctx1.fillRect(this.x, this.y, this.width, this.height); // see if hitbox area matches image to make sure if we jump on turtle we dont fall
+           if (frame % this.randomise === 0) { // animates turtle flippers at differnt pace
+                if (this.frameX >= 1) this.frameX = 0; // cycle between frame 1 and 0 horizontally
+                else this.frameX++; // animates frames
+           }
+            // ctx1.fillRect(this.x, this.y, this.width, this.height); // see if hitbox area matches image to make sure if we jump on turtle we dont fall
             // one frame from spread sheet is 70x70 pix
            ctx1.drawImage(turtle, this.frameX * 70, this.frameY * 70, 70, 70, this.x, this.y, this.width, this.height); // attributes: image, four attributes for area to crop out of spritesheet, four other attributes for where you want to draw image 
        }
