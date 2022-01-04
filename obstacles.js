@@ -9,6 +9,9 @@ class Obstacle {
         this.type = type;
     }
     draw(){
+       if (this.type === 'turtle'){
+           ctx1.drawImage(turtle, )
+       }
        // obstacles drawn on canvas 3
        ctx3.fillStyle = 'black';
        ctx3.fillRect(this.x, this.y, this.width, this.height); 

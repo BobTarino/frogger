@@ -59,3 +59,12 @@ grass.src = 'src/assets/images/grass.png';
 
 const collisions = new Image();
 collisions.src = 'src/assets/images/collisions.png';
+
+const turtle = new Image();
+turtle.src = 'src/assets/images/turtles.png';
+
+const log = new Image();
+log.src = 'src/assets/images/log.png';
+
+const car = new Image();
+car.src = 'src/assets/images/car.png';
