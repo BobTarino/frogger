@@ -42,6 +42,7 @@ window.addEventListener('keydown', function(e){
 window.addEventListener('keyup', function(e){
     delete keys[e.keyCode]; // delete keys from keys array
     frogger.moving = false; // initially movement is false // will reset when key is released
+    frogger.frameX = 0; // when keyup event fires set frogger frameX to 0
 });
 
 // score point! // when player moves past top edge of game area

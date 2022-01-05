@@ -44,6 +44,7 @@ class Frogger {
             if (this.moving === false && this.x < canvas.width - this.width * 2){
                 this.x += grid; 
                 this.moving = true;  
+                this.frameY = 1;
             } 
         }
         if (this.y < 0) scored(); // if player moves past top edge of game area

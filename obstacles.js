@@ -24,7 +24,7 @@ class Obstacle {
        } else if (this.type === 'log'){
            ctx1.drawImage(log, this.x, this.y, this.width, this.height);  
        } else {
-           ctx2.fillRect(this.x, this.y, this.width, this.height); // check collision area
+        //    ctx2.fillRect(this.x, this.y, this.width, this.height); // check collision area
            ctx2.drawImage(car, this.frameX * this.width, this.carType * this.height, grid * 2, grid, this.x, this.y, this.width, this.height); // copies out random cars
        }
        // obstacles drawn on canvas 3
