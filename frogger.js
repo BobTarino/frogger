@@ -22,18 +22,22 @@ class Frogger {
             if (this.moving === false) {
                 this.y -= grid; // frog will jump 80 pixels up
                 this.moving = true; // statement is only enetered when movement is false
+                this.frameX = 1; // image of frog jumping up in frog spritesheet
+                this.frameY = 0; // represents first row in frog spritesheet
             }
         }
         if (keys[40]){ // down
             if (this.moving === false && this.y < canvas.height - this.height * 2){ // prevents frog from leaving screen
                 this.y += grid; // frog will jump 80 pixels down
                 this.moving = true;  // statement is only enetered when movement is false
+                this.frameY = 3; // represents bottom row in frog spritesheet
             } 
         }
         if (keys[37]){ // left
             if (this.moving === false && this.x > this.width){
                 this.x -= grid; 
                 this.moving = true;  
+                this.frameY = 2;
             } 
         }
         if (keys[39]){ // right
@@ -48,10 +52,12 @@ class Frogger {
     // frog will be on canvas 3 
     draw(){
         ctx3.fillStyle = 'green';
-        ctx3.fillRect(this.x, this.y, this.width, this.height);
+        // ctx3.fillRect(this.x, this.y, this.width, this.height);
+        ctx3.drawImage(froggerSprite, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, this.x - 25, this.y - 25, this.width * 2, this.height * 2); // crop out 1 frame of frog // be careful when scaling sprites to not move sprite out of collision detection area
     }
     jump() {
-        // console.log('jump');
+        if (this.moving === false) this.frameX = 1;
+        else if (this.frameX === 1) this.frameY = 0;
     }
 }
 
